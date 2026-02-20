@@ -446,7 +446,7 @@ header {
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .coffee-type {
@@ -516,13 +516,13 @@ header {
 
 .processing-section,
 .grades-section {
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 .processing-section h3,
 .grades-section h3 {
   font-size: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
   text-align: center;
   color: var(--primary-color);
 }
@@ -739,7 +739,7 @@ header {
 
   background:
     linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-    url("../images/sugarcane.jpg");
+    url("../images/spices-2.jpg");
 
   background-size: cover;
   background-position: center;
@@ -751,7 +751,7 @@ header {
 
 /* Section surface (same opacity as Coffee/Rice) */
 .jaggery-bg .section {
-  height: 100vh;
+  height: 120vh;
   background: rgba(20, 20, 20, 0.6);
 }
 
