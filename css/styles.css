@@ -1,0 +1,1293 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #1abc9c;
+  --dark-bg: #0f0f0f;
+  --card-bg: #1a1a1a;
+  --section-bg: #141414;
+  --text-light: #e0e0e0;
+  --text-lighter: #b0b0b0;
+  --border-color: #333;
+  --dark-green: #1a4d3e;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, sans-serif;
+  line-height: 1.6;
+  color: var(--text-light);
+  background: var(--dark-bg);
+}
+
+/* ===== HEADER & NAVIGATION ===== */
+header {
+  background: var(--card-bg);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: normal;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--text-light);
+  font-weight: 400;
+  transition: color 0.3s ease;
+  padding-bottom: 0.5rem;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: var(--text-light);
+  transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(4.5px, 4.5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 8rem 2rem;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-blend-mode: darken;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 8vw, 4rem);
+  margin-bottom: 1rem;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+}
+
+.hero p {
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  max-width: 600px;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 4rem 2rem;
+  background: var(--section-bg);
+}
+
+.section:nth-child(even) {
+  background: var(--dark-bg);
+}
+
+.section h2 {
+  text-align: center;
+  font-size: clamp(1.8rem, 6vw, 2.5rem);
+  margin-bottom: 1rem;
+  text-decoration: underline;
+  color: var(--primary-color);
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--text-lighter);
+  margin-bottom: 3rem;
+  font-size: 1.05rem;
+}
+
+/* ===== ABOUT SECTION ===== */
+.about-section {
+  background: var(--card-bg);
+  padding: 3rem 2rem;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.about-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+.about-section p {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  color: var(--text-lighter);
+  line-height: 1.8;
+}
+
+/* ===== PRODUCTS GRID ===== */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.product-card {
+  background: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  border: 1px solid var(--border-color);
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(26, 188, 156, 0.2);
+  border-color: var(--primary-color);
+}
+
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  filter: brightness(0.9);
+}
+
+.product-info {
+  padding: 1.5rem;
+}
+
+.product-info h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.product-info p {
+  color: var(--text-lighter);
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.btn-know-more {
+  display: inline-block;
+  background: var(--primary-color);
+  color: var(--dark-bg);
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.btn-know-more:hover {
+  background: #15d5a7;
+  transform: scale(1.05);
+}
+
+/* ===== CONTACT SECTION ===== */
+
+/* =====================================================
+   CONTACT PAGE – FIXED BACKGROUND (SAME SYSTEM)
+   ===================================================== */
+
+.contact-bg {
+  position: relative;
+  z-index: 1;
+}
+
+/* Fixed background layer */
+.contact-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background:
+    linear-gradient(rgba(26, 77, 62, 0.8), rgba(26, 77, 62, 0.8)),
+    url("../images/contact-us.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Section surface */
+.contact-bg .section {
+  background: rgba(20, 20, 20, 0.75);
+}
+
+/* =====================================================
+   CONTACT CONTENT RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 768px) {
+  .contact-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.contact-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.contact-form {
+  /* background: var(--card-bg); */
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.contact-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+
+  background: rgba(255, 255, 255, 0.08); /* transparent */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  color: var(--text-light);
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+
+    
+}
+
+.contact-form textarea {
+  height: 120px;     /* fixed box */
+  resize: none;      /* disable resize */
+  overflow-y: auto;  /* enable scroll */
+}
+
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--text-lighter);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background: #2a2a2a;
+}
+
+.btn-submit {
+  background: var(--primary-color);
+  color: var(--dark-bg);
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.btn-submit:hover {
+  background: #15d5a7;
+  transform: translateY(-2px);
+}
+
+.contact-info {
+  /* background: var(--card-bg); */
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.contact-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+.info-item {
+  margin-bottom: 1.5rem;
+}
+
+.info-label {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+  color: var(--primary-color);
+}
+
+.info-text {
+  color: var(--text-lighter);
+}
+
+/* =====================================================
+   COFFEE BEANS PAGE – FIXED BACKGROUND
+   ===================================================== */
+
+/* Wrapper for coffee page content */
+.coffee-bg {
+  position: relative;
+  z-index: 1;
+}
+
+/* Fixed background layer */
+.coffee-bg::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url("../images/coffee-estate.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  z-index: -1;
+  pointer-events: none; /* safety */
+}
+
+/* Let background show through sections (controlled opacity) */
+.coffee-bg .section {
+  background: rgba(20, 20, 20, 0.44);
+}
+
+/* =====================================================
+   COFFEE COMPARISON
+   ===================================================== */
+
+
+.coffee-comparison {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.coffee-type {
+  position: relative;
+  padding: 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--border-color);
+}
+
+.arabica-card {
+  background:
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url("../images/A1.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.robusta-card {
+  background:
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url("../images/R1.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.coffee-type * {
+  position: relative;
+  z-index: 1;
+}
+
+
+.coffee-type h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.coffee-type ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.coffee-type li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-lighter);
+}
+
+.coffee-type li:last-child {
+  border-bottom: none;
+}
+
+.coffee-type strong {
+  color: var(--text-light);
+}
+
+/* =====================================================
+   PROCESSING METHODS
+   ===================================================== */
+
+.processing-section,
+.grades-section {
+  margin-top: 3rem;
+}
+
+.processing-section h3,
+.grades-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.processing-methods {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.method {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-color);
+}
+
+.method h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.method p {
+  color: var(--text-lighter);
+}
+
+/* =====================================================
+   COFFEE GRADES TABLE
+   ===================================================== */
+
+.grades-table {
+  width: 100%;
+  background: var(--card-bg);
+  border-collapse: collapse;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.grades-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  color: var(--text-lighter);
+}
+
+.grades-table td:last-child {
+  border-right: none;
+}
+
+.grades-table tr:last-child td {
+  border-bottom: none;
+}
+
+.grades-table td:first-child {
+  font-weight: bold;
+  background: #252525;
+  color: var(--primary-color);
+  width: 30%;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 768px) {
+  .coffee-comparison {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .processing-methods {
+    grid-template-columns: 1fr;
+  }
+
+  .coffee-image-bg {
+    padding: 2rem;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .coffee-type {
+    padding: 1.5rem;
+  }
+}
+
+
+/* =====================================================
+   RICE PAGE – FIXED BACKGROUND (SAME AS COFFEE)
+   ===================================================== */
+
+.rice-bg {
+  position: relative;
+  z-index: 1;
+}
+
+/* Fixed background layer */
+.rice-bg::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url("../images/rice-field.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  z-index: -1;
+  pointer-events: none; /* safety */
+}
+
+/* Section background (same shade as coffee) */
+.rice-bg .section {
+  height: 100vh;
+  background: rgba(20, 20, 20, 0.64);
+}
+
+/* =====================================================
+   RICE CONTENT
+   ===================================================== */
+
+.rice-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.rice-text {
+  color: white;
+}
+
+.rice-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+}
+
+.rice-text p {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.rice-offers {
+  margin-top: 2rem;
+}
+
+.rice-offers h3 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.rice-offers h4 {
+  color: white;
+}
+
+.rice-offers ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.rice-offers li {
+  padding: 0.5rem 0;
+  margin-left: 1rem;
+}
+
+.rice-offers li::before {
+  content: "• ";
+  margin-right: 0.5rem;
+  color: var(--primary-color);
+}
+
+.rice-image {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--border-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .rice-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =====================================================
+   JAGGERY PAGE – SAME BACKGROUND SYSTEM AS COFFEE & RICE
+   ===================================================== */
+
+.jaggery-bg {
+  position: relative;
+  z-index: 1;
+}
+
+/* Fixed background layer */
+.jaggery-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background:
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url("../images/sugarcane.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Section surface (same opacity as Coffee/Rice) */
+.jaggery-bg .section {
+  height: 100vh;
+  background: rgba(20, 20, 20, 0.6);
+}
+
+/* Content layout */
+.jaggery-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.jaggery-text h1 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.jaggery-text p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  color: var(--text-lighter);
+}
+
+.jaggery-image {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  border: 1px solid var(--border-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .jaggery-content {
+    grid-template-columns: 1fr;
+  }
+
+  .jaggery-text h1 {
+    font-size: 2.2rem;
+  }
+}
+
+
+/* ===== WHATSAPP BUTTON ===== */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--primary-color);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  z-index: 99;
+  box-shadow: 0 4px 16px rgba(26, 188, 156, 0.4);
+  font-size: 1.5rem;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  color: var(--dark-bg);
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 24px rgba(26, 188, 156, 0.6);
+}
+
+/* ===== MOBILE RESPONSIVE - HAMBURGER MENU ===== */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    flex-direction: column;
+    background: var(--card-bg);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    gap: 0;
+    padding: 2rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    border-top: 1px solid var(--border-color);
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .nav-menu a {
+    display: block;
+    padding: 1.5rem 0;
+    border: none;
+    color: var(--text-light);
+  }
+
+  .nav-menu a:hover,
+  .nav-menu a.active {
+    border-bottom: none;
+    color: var(--primary-color);
+    background: #252525;
+  }
+}
+
+/* ===== TABLET & MOBILE ADJUSTMENTS ===== */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.75rem 1rem;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+  }
+
+  .hero {
+    padding: 4rem 1.5rem;
+    min-height: 350px;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+
+  .hero p {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  }
+
+  .section {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .section h2 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .product-card {
+    margin-bottom: 1rem;
+  }
+
+  .product-image {
+    height: 200px;
+  }
+
+  /* Contact Section */
+  .contact-section {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .contact-form,
+  .contact-info {
+    padding: 1.5rem;
+  }
+
+  /* Coffee Beans Page */
+  .coffee-comparison {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .processing-methods {
+    grid-template-columns: 1fr;
+  }
+
+  .grades-table {
+    font-size: 0.9rem;
+  }
+
+  .grades-table td {
+    padding: 0.8rem;
+  }
+
+  /* Rice Page */
+  .rice-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .rice-text h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .rice-image {
+    max-width: 100%;
+  }
+
+  /* Jaggery Page */
+  .jaggery-page {
+    padding: 2rem 1.5rem;
+    min-height: auto;
+  }
+
+  .jaggery-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .jaggery-text h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .jaggery-image {
+    max-width: 100%;
+  }
+}
+
+/* ===== SMALL PHONES (max-width: 480px) ===== */
+@media (max-width: 480px) {
+  header {
+    padding: 0.75rem 1rem;
+  }
+
+  .navbar {
+    padding: 0.5rem 0;
+  }
+
+  .logo {
+    font-size: 1rem;
+  }
+
+  .hero {
+    padding: 2.5rem 1rem;
+    min-height: 300px;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.3rem, 5vw, 2rem);
+  }
+
+  .hero p {
+    font-size: clamp(0.85rem, 2vw, 1rem);
+  }
+
+  .section {
+    padding: 2rem 1rem;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .products-grid {
+    gap: 1rem;
+  }
+
+  .product-image {
+    height: 180px;
+  }
+
+  .product-info {
+    padding: 1rem;
+  }
+
+  .product-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .product-info p {
+    font-size: 0.9rem;
+  }
+
+  .btn-know-more {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .contact-form,
+  .contact-info {
+    padding: 1rem;
+  }
+
+  .contact-form-group {
+    margin-bottom: 1rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.6rem;
+    font-size: 16px;
+  }
+
+  .contact-form label {
+    font-size: 0.95rem;
+  }
+
+  .btn-submit {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .contact-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .info-item {
+    margin-bottom: 1rem;
+  }
+
+  .coffee-type {
+    padding: 1.5rem;
+  }
+
+  .coffee-type h3 {
+    font-size: 1.2rem;
+  }
+
+  .coffee-type li {
+    padding: 0.4rem 0;
+    font-size: 0.95rem;
+  }
+
+  .method {
+    padding: 1.5rem;
+  }
+
+  .method h4 {
+    font-size: 1rem;
+  }
+
+  .method p {
+    font-size: 0.95rem;
+  }
+
+  .grades-table {
+    font-size: 0.85rem;
+  }
+
+  .grades-table td {
+    padding: 0.6rem;
+  }
+
+  .rice-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .rice-text p {
+    font-size: 0.95rem;
+  }
+
+  .rice-offers h3 {
+    font-size: 1.1rem;
+  }
+
+  .rice-offers h4 {
+    font-size: 1rem;
+  }
+
+  .rice-offers li {
+    font-size: 0.95rem;
+    margin-left: 0.5rem;
+  }
+
+  .jaggery-page {
+    padding: 1.5rem 1rem;
+    min-height: auto;
+  }
+
+  .jaggery-content {
+    gap: 1.5rem;
+  }
+
+  .jaggery-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .jaggery-text p {
+    font-size: 0.95rem;
+  }
+
+  .btn-contact {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .whatsapp-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}
+
+/* ===== LANDSCAPE MODE ===== */
+@media (max-height: 600px) and (orientation: landscape) {
+  .hero {
+    padding: 3rem 2rem;
+    min-height: 300px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .section {
+    padding: 2rem;
+  }
+
+  .jaggery-page {
+    min-height: auto;
+    padding: 2rem;
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  header,
+  .whatsapp-btn {
+    display: none;
+  }
+
+  .hero {
+    background: white !important;
+    color: #000 !important;
+  }
+
+  body {
+    background: white !important;
+    color: #000 !important;
+  }
+
+  .section {
+    background: white !important;
+    page-break-inside: avoid;
+  }
+
+  .product-card,
+  .contact-form,
+  .contact-info,
+  .coffee-type,
+  .method,
+  .about-section {
+    background: white !important;
+    color: #000 !important;
+    border-color: #ccc !important;
+  }
+
+  .section h2 {
+    color: #000 !important;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    background: white !important;
+    color: #000 !important;
+    border-color: #ccc !important;
+  }
+
+  body {
+    line-height: 1.5;
+  }
+}
+
+/* ===== SCROLLBAR STYLING (Dark Theme) ===== */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--section-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #15d5a7;
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-color: var(--primary-color) var(--section-bg);
+  scrollbar-width: thin;
+}
+
+/* ===== SELECTION COLOR ===== */
+::selection {
+  background: var(--primary-color);
+  color: var(--dark-bg);
+}
+
+::-moz-selection {
+  background: var(--primary-color);
+  color: var(--dark-bg);
+}
+
+/* ===== FOCUS STATES ===== */
+a:focus,
+button:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.section {
+  animation: fadeIn 0.5s ease-in;
+}
