@@ -261,7 +261,7 @@ header {
   inset: 0;
 
   background:
-    linear-gradient(rgba(26, 77, 62, 0.8), rgba(26, 77, 62, 0.8)),
+    linear-gradient(rgba(26, 77, 62, 0.8), rgba(26, 77, 62, 0.6)),
     url("../images/contact-us.jpg");
 
   background-size: cover;
@@ -516,7 +516,8 @@ header {
 
 .processing-section,
 .grades-section {
-  margin-top: 1rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
 }
 
 .processing-section h3,
@@ -662,6 +663,20 @@ header {
   align-items: center;
 }
 
+.rice-heading {
+  grid-column: 1 / -1; /* Heading full width */
+  text-align: center;
+}
+
+.rice-img-wrapper {
+  order: 2;
+  margin-bottom: 5rem;
+}
+
+.rice-text {
+  order: 1;
+}
+
 .rice-text {
   color: white;
 }
@@ -673,19 +688,24 @@ header {
 }
 
 .rice-text p {
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
   font-size: 1.05rem;
   line-height: 1.8;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 .rice-offers {
-  margin-top: 2rem;
+  margin-top: 0rem;
 }
 
-.rice-offers h3 {
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
+.spices-text {
+  margin-top: 0rem;
+  color: var(--text-lighter);
+}
+
+.rice-offers h5 {
+  margin-bottom: 2rem;
+  font-size: 0.8rem;
 }
 
 .rice-offers h4 {
@@ -722,6 +742,27 @@ header {
   }
 }
 
+@media (max-width: 768px) {
+
+  .rice-content {
+    grid-template-columns: 1fr;
+  }
+
+  .rice-heading {
+    order: 1;
+  }
+
+  .rice-img-wrapper {
+    order: 2;
+      margin-bottom: 0rem;
+  }
+
+  .rice-text {
+    order: 3;
+  }
+
+}
+
 /* =====================================================
    JAGGERY PAGE – SAME BACKGROUND SYSTEM AS COFFEE & RICE
    ===================================================== */
@@ -749,10 +790,28 @@ header {
   pointer-events: none;
 }
 
-/* Section surface (same opacity as Coffee/Rice) */
+/* Section surface */
 .jaggery-bg .section {
-  height: 120vh;
+  min-height: 100vh;
   background: rgba(20, 20, 20, 0.6);
+}
+
+/* Layout */
+.jaggery-content {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr; /* text slightly bigger */
+  gap: 3rem;
+  align-items: center;
+}
+
+/* Heading full width */
+.jaggery-heading {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+.spices-item {
+  margin-bottom: 2rem;
 }
 
 /* Content layout */
@@ -761,8 +820,13 @@ header {
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
+}
+
+
+
+.jaggery-heading {
+  grid-column: 1 / -1;
+  text-align: center;
 }
 
 .jaggery-text h1 {
@@ -793,6 +857,26 @@ header {
   .jaggery-text h1 {
     font-size: 2.2rem;
   }
+}
+
+@media (max-width: 768px) {
+
+  .jaggery-content {
+    grid-template-columns: 1fr;
+  }
+
+  .jaggery-heading {
+    order: 1;
+  }
+
+  .jaggery-img-wrapper {
+    order: 2;
+  }
+
+  .jaggery-text {
+    order: 3;
+  }
+
 }
 
 
